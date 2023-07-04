@@ -1,0 +1,16 @@
+{
+    "name": "GameAnimations",
+    "rootNamespace": "",
+    "references": [
+        "GUID:25440f832e99962478f6a8355d0ef284"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

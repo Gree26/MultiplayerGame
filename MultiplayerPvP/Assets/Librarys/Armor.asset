@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Armor
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: IronArmorHead
+    m_Hash: 1624748165
+    m_CategoryList:
+    - m_Name: IDLE
+      m_Hash: -357476191
+      m_Sprite: {fileID: -832877447505148580, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: DRINK1
+      m_Hash: -1181526789
+      m_Sprite: {fileID: 1622602512631965179, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: DRINK2
+      m_Hash: 546964801
+      m_Sprite: {fileID: -4072587543208306947, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: DRINK3
+      m_Hash: 1469920727
+      m_Sprite: {fileID: -2668183187839823852, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: MOVE1
+      m_Hash: 299354870
+      m_Sprite: {fileID: 8159058548690623787, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: MOVE2
+      m_Hash: -1998677172
+      m_Sprite: {fileID: 6938045211980998080, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: MOVE3
+      m_Hash: -19289126
+      m_Sprite: {fileID: 4201756268936101833, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: MOVE4
+      m_Hash: 1639792249
+      m_Sprite: {fileID: 2092684109483213010, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: MOVE5
+      m_Hash: 381292271
+      m_Sprite: {fileID: 2550736026261328710, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: MOVE6
+      m_Hash: -1884070059
+      m_Sprite: {fileID: -7961079855189017294, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: MOVE7
+      m_Hash: -122392637
+      m_Sprite: {fileID: -111121340162332567, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: MOVE8
+      m_Hash: 1745580626
+      m_Sprite: {fileID: 2094276757119559313, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: ATTACK1
+      m_Hash: 918231148
+      m_Sprite: {fileID: 5436994204550530496, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+    - m_Name: ATTACK2
+      m_Hash: -1347270186
+      m_Sprite: {fileID: -2719921563312687881, guid: bcc6699b2a17bc64aa9f5858fc345002, type: 3}
+  - m_Name: IronArmorBody
+    m_Hash: 478956971
+    m_CategoryList:
+    - m_Name: IDLE
+      m_Hash: -357476191
+      m_Sprite: {fileID: 2891507653898826771, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: DRINK1
+      m_Hash: -1181526789
+      m_Sprite: {fileID: 5761635429566897443, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: DRINK2
+      m_Hash: 546964801
+      m_Sprite: {fileID: -1132587281868696946, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: DRINK3
+      m_Hash: 1469920727
+      m_Sprite: {fileID: 4496114639306194301, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: MOVE1
+      m_Hash: 299354870
+      m_Sprite: {fileID: -991279928696992931, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: MOVE2
+      m_Hash: -1998677172
+      m_Sprite: {fileID: -5194132941659523831, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: MOVE3
+      m_Hash: -19289126
+      m_Sprite: {fileID: -969585570698711307, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: MOVE4
+      m_Hash: 1639792249
+      m_Sprite: {fileID: -2121553631874771406, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: MOVE5
+      m_Hash: 381292271
+      m_Sprite: {fileID: -8215533109016991330, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: MOVE6
+      m_Hash: -1884070059
+      m_Sprite: {fileID: 8384254959887267607, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: MOVE7
+      m_Hash: -122392637
+      m_Sprite: {fileID: -7389796798173173769, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: MOVE8
+      m_Hash: 1745580626
+      m_Sprite: {fileID: -2289728779256205302, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: ATTACK1
+      m_Hash: 918231148
+      m_Sprite: {fileID: 6788294661558945568, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+    - m_Name: ATTACK2
+      m_Hash: -1347270186
+      m_Sprite: {fileID: 2483833214795403714, guid: 0f1f2b173d4d57440b3937eb29543a62, type: 3}
+  - m_Name: IronArmorLegs
+    m_Hash: 977012115
+    m_CategoryList:
+    - m_Name: IDLE
+      m_Hash: -357476191
+      m_Sprite: {fileID: -4082553046352345322, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: DRINK1
+      m_Hash: -1181526789
+      m_Sprite: {fileID: 4364971124041394415, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: DRINK2
+      m_Hash: 546964801
+      m_Sprite: {fileID: 7656074519768668842, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: DRINK3
+      m_Hash: 1469920727
+      m_Sprite: {fileID: -5669270282615743689, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: MOVE1
+      m_Hash: 299354870
+      m_Sprite: {fileID: 1597599805000871541, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: MOVE2
+      m_Hash: -1998677172
+      m_Sprite: {fileID: 6513702030304267763, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: MOVE3
+      m_Hash: -19289126
+      m_Sprite: {fileID: 3160771400602125541, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: MOVE4
+      m_Hash: 1639792249
+      m_Sprite: {fileID: -6026157849711147350, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: MOVE5
+      m_Hash: 381292271
+      m_Sprite: {fileID: 6565636509439076494, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: MOVE6
+      m_Hash: -1884070059
+      m_Sprite: {fileID: 3127548835185840925, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: MOVE7
+      m_Hash: -122392637
+      m_Sprite: {fileID: -5101784727350626812, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: MOVE8
+      m_Hash: 1745580626
+      m_Sprite: {fileID: -741875559333844057, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: ATTACK1
+      m_Hash: 918231148
+      m_Sprite: {fileID: -2858797476790063267, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}
+    - m_Name: ATTACK2
+      m_Hash: -1347270186
+      m_Sprite: {fileID: 7014461608802241818, guid: 232098b7b69ece945aa67eb7b7b7d297, type: 3}

@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbd30c53ca9fa34f830c64424ffbd20, type: 3}
+  m_Name: L_RoyalGuard
+  m_EditorClassIdentifier: 
+  _itemName: oyal Guard] Leg Armor
+  _rarity: {fileID: 0}
+  icon: {fileID: 0}
+  _itemImage:
+  - {fileID: 21300000, guid: 8e633d43eb134304f80747634591324d, type: 3}
+  health: 0
+  armor: 0
+  dex: 0
+  magic: 0
+  knowledge: 0
+  _northIdle:
+  - {fileID: -3473823093293901857, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _northMove:
+  - {fileID: -5192054711651953619, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 1405313923441284870, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 1147593835690272106, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 5910213124747492766, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -2619379751549891119, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -8251278157947081643, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 2159464250727852964, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -2396719066964054322, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _northAttack:
+  - {fileID: -8982902369153928649, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -8336004434772167933, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _northDrink:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _northDodge:
+  - {fileID: 5864577133172032961, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -2769220360735672244, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -5415488592498977534, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 7880242697735750011, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _eastIdle:
+  - {fileID: 5277422838034734816, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _eastMove:
+  - {fileID: -7094677312916410236, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -4869988784761944945, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 6735016584620001024, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 9165815577711737765, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -8655104857085656661, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 1791094017430971474, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 5444469367122213172, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 4540595556728374410, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _eastAttack:
+  - {fileID: 5277422838034734816, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -7324927592150043683, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _eastDrink:
+  - {fileID: 5277422838034734816, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _eastDodge:
+  - {fileID: 7195758556028300513, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -9034188511179748882, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 7735384902948511609, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 2375608089252087582, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _southIdle:
+  - {fileID: 6032256627635708925, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _southMove:
+  - {fileID: 1828195032079025931, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 1204024010665944737, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -8674810472613196519, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 4691282922312132165, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 1168912836663437171, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 17619110724821499, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 5076214532978837392, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -843788175472204125, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _southAttack:
+  - {fileID: 6032256627635708925, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -8580640383202564296, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _southDrink:
+  - {fileID: 6032256627635708925, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _southDodge:
+  - {fileID: -433324434312841612, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 8477820297201740534, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -1362618239068665374, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -8537148555170671727, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _westIdle:
+  - {fileID: 5154089147718578671, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _westMove:
+  - {fileID: -2425460911140471483, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 3529239081667238632, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 3223889170602977296, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 4440333686717789646, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 173831446648485800, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -1357321136990539066, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 4294419576926833672, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 6972489957488993108, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _westAttack:
+  - {fileID: 5154089147718578671, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -4498323637589310950, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _westDrink:
+  - {fileID: 5154089147718578671, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  _westDodge:
+  - {fileID: -5541409521106976011, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 3389540783416014006, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: -6715262947214585349, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}
+  - {fileID: 5943221349021011044, guid: 7bb1f4083bd338647a8ef55f84d18054, type: 3}

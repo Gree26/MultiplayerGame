@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd7e7ab0c101c4e9132607d343d6a8, type: 3}
+  m_Name: H_EliteGuard
+  m_EditorClassIdentifier: 
+  _itemName: '[ELITE GUARD] Helmet Armor'
+  _rarity: {fileID: 0}
+  icon: {fileID: 0}
+  _itemImage: []
+  health: 0
+  armor: 0
+  dex: 0
+  magic: 0
+  knowledge: 0
+  _northIdle: []
+  _northMove: []
+  _northAttack: []
+  _northDrink: []
+  _northDodge: []
+  _eastIdle: []
+  _eastMove: []
+  _eastAttack: []
+  _eastDrink: []
+  _eastDodge: []
+  _southIdle: []
+  _southMove: []
+  _southAttack: []
+  _southDrink: []
+  _southDodge: []
+  _westIdle: []
+  _westMove: []
+  _westAttack: []
+  _westDrink: []
+  _westDodge: []

@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbd30c53ca9fa34f830c64424ffbd20, type: 3}
+  m_Name: L_EliteGuard
+  m_EditorClassIdentifier: 
+  _itemName: '[ELITE GUARD] Leg Armor'
+  _rarity: {fileID: 11400000, guid: 01c85b485ee2f7b4096ed017cce645d9, type: 2}
+  icon: {fileID: 0}
+  _itemImage:
+  - {fileID: 21300000, guid: a01a33437b07fd7458ef7b0876bbeddb, type: 3}
+  health: 0
+  armor: 0
+  dex: 0
+  magic: 0
+  knowledge: 0
+  _northIdle:
+  - {fileID: -7239377063234528211, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 2353231528213911534, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 6478590071588966093, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -1778266884101174899, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 2012384128389478802, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 4823203843543692374, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -5746866246763993217, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -1234052103426907335, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -6270735447901233436, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 7804137968764490328, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  _northMove:
+  - {fileID: -314870049336088782, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 3458736095881484447, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -8061912434322542692, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 4860976347831916409, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 8591922533687036882, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -1037857373697198670, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -3253200230654045562, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 3713618143442091283, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  _northAttack:
+  - {fileID: -2973234513949562744, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: 0}
+  _northDrink:
+  - {fileID: -7239377063234528211, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  _northDodge:
+  - {fileID: 227669148737439118, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -1406778395056116736, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -7891875607644720883, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  - {fileID: -3163002411904853269, guid: 9974b983ab47b0d4186c677f5a74b474, type: 3}
+  _eastIdle:
+  - {fileID: 4767974977533667672, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -7087374981245205701, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -7602827012146591809, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -165354272805985121, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: 7703763717036082157, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -3264249529629659636, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -2502756766085940830, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: 4767974977533667672, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -2631003445000066720, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: 4767974977533667672, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  _eastMove:
+  - {fileID: 7803511258722413757, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -3072835513318291179, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: 6286174601008276566, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: 1696519197977732269, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: 545308929010243338, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: 6985025569056166106, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -4866434559971755025, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: 8145530540380807504, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  _eastAttack:
+  - {fileID: 4767974977533667672, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -8855579769488845182, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  _eastDrink:
+  - {fileID: 4767974977533667672, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  _eastDodge:
+  - {fileID: -1962241063424095554, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -397202006792033007, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: 3473712663830489512, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  - {fileID: -5244084591076444140, guid: 0fe78670e9f313a40bb0415007b3ed75, type: 3}
+  _southIdle:
+  - {fileID: 7640367974097578281, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -734816522691002531, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -9097344691600530496, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -6220809305017451500, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -922866935231666259, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: 2426776301163030072, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: 5178450054077255962, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: 4049498128023543151, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -4475051415549455354, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: 1034196554833030743, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  _southMove:
+  - {fileID: 7081887497059466391, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -587765094948372157, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: 2591718186202243497, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -5821921456974059824, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -4561515445258511210, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -2434519472514663206, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: 2061524410452252348, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -3155434375377811492, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  _southAttack:
+  - {fileID: 7640367974097578281, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: 730723683596193251, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  _southDrink:
+  - {fileID: 7640367974097578281, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  _southDodge:
+  - {fileID: 1897034658770017222, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -4562722790390749600, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -7413210006382991376, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  - {fileID: -8042278033679643462, guid: 0203b829f9105ab438b768cbfd132ba2, type: 3}
+  _westIdle:
+  - {fileID: 2049436009075863175, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: -8631907745176473110, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: -9010775829210950849, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: -8687058927242612303, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 7254819740378638775, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 7090752838922806011, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 3101126860357812615, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: -2529818055558174076, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 5881209555132794746, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: -1772268263653490973, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  _westMove:
+  - {fileID: -2371742682739592067, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 1599406679448022723, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: -5580839091623311597, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 7731329588706792333, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: -727935302182071554, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: -5729003085093094419, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 296524861825660, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 3642758521691486198, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  _westAttack:
+  - {fileID: 2049436009075863175, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 3046309689116296530, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  _westDrink:
+  - {fileID: 2049436009075863175, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  _westDodge:
+  - {fileID: -5226998308922528124, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 98011248280451362, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: -4391105011440897709, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
+  - {fileID: 3443215928790687777, guid: 04608ca98e55e1d4abcafc6aea52affe, type: 3}
