@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: '[POWER] Sword'
   _rarity: {fileID: 0}
-  _itemImage: []
+  icon: {fileID: 0}
+  _id: 105
+  _itemImage: {fileID: 0}
   health: 0
   armor: 0
   dex: 0

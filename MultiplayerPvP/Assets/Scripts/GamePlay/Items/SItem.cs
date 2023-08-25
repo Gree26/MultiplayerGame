@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "Items/Basic", order = 1)]
 public class SItem : ScriptableObject
@@ -8,7 +9,7 @@ public class SItem : ScriptableObject
     /// <summary>
     /// Contains Every item with its name. 
     /// </summary>
-    protected static Dictionary<string, SItem> items = new Dictionary<string, SItem>();
+    protected static Dictionary<short, SItem> items = new Dictionary<short, SItem>();
 
     [SerializeField]
     protected string _itemName = "[PH]";
@@ -19,7 +20,16 @@ public class SItem : ScriptableObject
     [SerializeField]
     private Sprite icon;
 
-    private static int id = 0;
+    //This exists so that I can clear it from the dictionary if the value chagened and add a new one
+    private short _myId = -1;
+
+    [SerializeField]
+    private short _id = -1;
+
+    public short Id
+    {
+        get => _id;
+    }
 
     public string itemName
     {
@@ -32,27 +42,47 @@ public class SItem : ScriptableObject
     }
 
     [SerializeField]
-    protected List<Sprite> _itemImage;
-    public List<Sprite> itemImage
+    protected Sprite _itemImage;
+    public Sprite itemImage
     {
         get => _itemImage;
     }
 
     protected int _stackCap = 999;
 
-    public int StackCap()
+    public int GetStackCap()
     {
         return _stackCap;
     }
 
-    private void Awake()
+    private void OnValidate()
     {
-        if (items.ContainsKey(_itemName))
+        // Value was not changed for the ID
+        if (_id == _myId)
         {
-            Debug.LogError("Item Name Already Exists! Item Name: " + _itemName + " already exists on item " + items[_itemName]);
+            return;
         }
 
-        items.Add(_itemName, this);
+        if (_id < 0)
+        {
+            Debug.LogError("SItem: " + itemName +  " | ID CANNOT BE NEGATIVE.");
+            return;
+        }
+
+        if(items.ContainsKey(_id)&& items[_id] != this)
+        {
+            Debug.LogError("SItem: " + itemName + " | ID EXISTS ALREADY FOR " + items[_id].itemName + ".");
+            return;
+        }
+
+        if (_myId >= 0)
+        {
+            items.Remove(_myId);
+        }
+
+        _myId = _id;
+
+        items.Add(_id,this);
     }
 
     /// <summary>
@@ -61,10 +91,8 @@ public class SItem : ScriptableObject
     /// <param name="position"></param>
     public void CreateDrop(Vector3 position)
     {
-        // Potentially could be a buffer overflow issue but for now ima just use this.
-        id++;
         GameObject go1 = new GameObject();
-        go1.name = "Drop - " + id;
+        go1.name = "Drop - " + _id;
         go1.transform.position = position;
         SpriteRenderer go1Renderer = go1.AddComponent<SpriteRenderer>();
         go1Renderer.sprite = icon;

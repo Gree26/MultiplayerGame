@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Magnet
   layers:
   - Default
   - TransparentFX
@@ -55,4 +56,7 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 322351431
+    locked: 0
+  - name: Drops
+    uniqueID: 1632786733
     locked: 0

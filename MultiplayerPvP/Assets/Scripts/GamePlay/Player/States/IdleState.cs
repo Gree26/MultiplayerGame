@@ -10,7 +10,7 @@ namespace StateMachine
         public override void Init(UserStateController parent)
         {
             base.Init(parent);
-            Debug.Log("Idle Entered");
+            //Debug.Log("Idle Entered");
         }
 
         public override void CaptureInput()

@@ -6,8 +6,7 @@ using UnityEngine;
 public class OpenStateBehavior : State<UserStateController>
 {
     protected Rigidbody2D _rigidbody;
-    protected Vector2 _input;
-    protected DefaultInputActionBinding _defaultInputActionBinding;
+    protected Vector2 _input = Vector2.zero;
     protected bool _dodgePressed = false;
 
     protected CharacterAnimator _myAnimator;
@@ -15,15 +14,14 @@ public class OpenStateBehavior : State<UserStateController>
     public override void Init(UserStateController parent)
     {
         base.Init(parent);
+        InputHandler.MoveInputUpdated += NewInput;
         _myAnimator = parent.MyAnimator;
         if (_rigidbody == null) _rigidbody = parent.GetComponent<Rigidbody2D>();
-        if (_defaultInputActionBinding == null) _defaultInputActionBinding = parent.DefaultInputActionBinding;
     }
 
     public override void CaptureInput()
     {
-        _input = _defaultInputActionBinding.Player.Movement.ReadValue<Vector2>();
-        _dodgePressed = _defaultInputActionBinding.Player.Dodge.ReadValue<bool>();
+
     }
 
     public override void ChangeState()
@@ -47,5 +45,10 @@ public class OpenStateBehavior : State<UserStateController>
     public override void Update()
     {
         
+    }
+
+    private void NewInput(Vector2 input)
+    {
+        _input = input;
     }
 }

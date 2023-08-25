@@ -5,457 +5,232 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CharacterSprites", menuName = "Characters/Basic", order = 1)]
 public class SCharacterAnimations : ScriptableObject
 {
+
+
     #region NORTH
-    [Header("Upper Body")]
+    [Header("North")]
     [SerializeField]
-    private List<Sprite> _northUpperIdle;
-    public List<Sprite> NorthUpperIdle
+    private List<Sprite> _northIdle;
+    public List<Sprite> NorthIdle
     {
         get
         {
-            return GenerateNewList(_northUpperIdle);
+            return GenerateNewList(_northIdle);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _northUpperMove;
+    private List<Sprite> _northMove;
 
-    public List<Sprite> NorthUpperMove
+    public List<Sprite> NorthMove
     {
         get
         {
-            return GenerateNewList(_northUpperMove);
+            return GenerateNewList(_northMove);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _northUpperAttack;
+    private List<Sprite> _northAttack;
 
-    public List<Sprite> NorthUpperAttack
+    public List<Sprite> NorthAttack
     {
         get
         {
-            return GenerateNewList(_northUpperAttack);
+            return GenerateNewList(_northAttack);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _northUpperDrink;
+    private List<Sprite> _northIdleChargeAttack;
 
-    public List<Sprite> NorthUpperDrink
+    public List<Sprite> NorthIdleChargeAttack
     {
         get
         {
-            return GenerateNewList(_northUpperDrink);
+            return GenerateNewList(_northIdleChargeAttack);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _northUpperDodge;
+    private List<Sprite> _northMoveChargeAttack;
 
-    public List<Sprite> NorthUpperDodge
+    public List<Sprite> NorthMoveChargeAttack
     {
         get
         {
-            return GenerateNewList(_northUpperDodge);
-        }
-    }
-
-    [Header("Lower Body")]
-
-    [SerializeField]
-    private List<Sprite> _northLowerIdle;
-    public List<Sprite> NorthLowerIdle
-    {
-        get
-        {
-            return GenerateNewList(_northLowerIdle);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _northLowerMove;
-
-    public List<Sprite> NorthLowerMove
-    {
-        get
-        {
-            return GenerateNewList(_northLowerMove);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _northLowerAttack;
-
-    public List<Sprite> NorthLowerAttack
-    {
-        get
-        {
-            return GenerateNewList(_northLowerAttack);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _northLowerDrink;
-
-    public List<Sprite> NorthLowerDrink
-    {
-        get
-        {
-            return GenerateNewList(_northLowerDrink);
-        }
-    }
-
-    
-
-    [SerializeField]
-    private List<Sprite> _northLowerDodge;
-
-    public List<Sprite> NorthLowerDodge
-    {
-        get
-        {
-            return GenerateNewList(_northLowerDodge);
+            return GenerateNewList(_northMoveChargeAttack);
         }
     }
     #endregion
 
-    #region EAST
-    [Header("Upper Body")]
+    #region East
+    [Header("East")]
     [SerializeField]
-    private List<Sprite> _eastUpperIdle;
-    public List<Sprite> EastUpperIdle
+    private List<Sprite> _eastIdle;
+    public List<Sprite> EastIdle
     {
         get
         {
-            return GenerateNewList(_eastUpperIdle);
+            return GenerateNewList(_eastIdle);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _eastUpperMove;
+    private List<Sprite> _eastMove;
 
-    public List<Sprite> EastUpperMove
+    public List<Sprite> EastMove
     {
         get
         {
-            return GenerateNewList(_eastUpperMove);
+            return GenerateNewList(_eastMove);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _eastUpperAttack;
+    private List<Sprite> _eastAttack;
 
-    public List<Sprite> EastUpperAttack
+    public List<Sprite> EastAttack
     {
         get
         {
-            return GenerateNewList(_eastUpperAttack);
+            return GenerateNewList(_eastAttack);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _eastUpperDrink;
+    private List<Sprite> _eastIdleChargeAttack;
 
-    public List<Sprite> EastUpperDrink
+    public List<Sprite> EastIdleChargeAttack
     {
         get
         {
-            return GenerateNewList(_eastUpperDrink);
+            return GenerateNewList(_eastIdleChargeAttack);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _eastUpperDodge;
+    private List<Sprite> _eastMoveChargeAttack;
 
-    public List<Sprite> EastUpperDodge
+    public List<Sprite> EastMoveChargeAttack
     {
         get
         {
-            return GenerateNewList(_eastUpperDodge);
-        }
-    }
-
-
-    [Header("Lower Body")]
-
-    [SerializeField]
-    private List<Sprite> _eastLowerIdle;
-    public List<Sprite> EastLowerIdle
-    {
-        get
-        {
-            return GenerateNewList(_eastLowerIdle);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _eastLowerMove;
-
-    public List<Sprite> EastLowerMove
-    {
-        get
-        {
-            return GenerateNewList(_eastLowerMove);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _eastLowerAttack;
-
-    public List<Sprite> EastLowerAttack
-    {
-        get
-        {
-            return GenerateNewList(_eastLowerAttack);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _eastLowerDrink;
-
-    public List<Sprite> EastLowerDrink
-    {
-        get
-        {
-            return GenerateNewList(_eastLowerDrink);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _eastLowerDodge;
-
-    public List<Sprite> EastLowerDodge
-    {
-        get
-        {
-            return GenerateNewList(_eastLowerDodge);
+            return GenerateNewList(_eastMoveChargeAttack);
         }
     }
     #endregion
 
-    #region SOUTH
-    [Header("Upper Body")]
+    #region South
+    [Header("South")]
     [SerializeField]
-    private List<Sprite> _southUpperIdle;
-    public List<Sprite> SouthUpperIdle
+    private List<Sprite> _southIdle;
+    public List<Sprite> SouthIdle
     {
         get
         {
-            return GenerateNewList(_southUpperIdle);
+            return GenerateNewList(_southIdle);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _southUpperMove;
+    private List<Sprite> _southMove;
 
-    public List<Sprite> SouthUpperMove
+    public List<Sprite> SouthMove
     {
         get
         {
-            return GenerateNewList(_southUpperMove);
+            return GenerateNewList(_southMove);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _southUpperAttack;
+    private List<Sprite> _southAttack;
 
-    public List<Sprite> SouthUpperAttack
+    public List<Sprite> SouthAttack
     {
         get
         {
-            return GenerateNewList(_southUpperAttack);
+            return GenerateNewList(_southAttack);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _southUpperDrink;
+    private List<Sprite> _southIdleChargeAttack;
 
-    public List<Sprite> SouthUpperDrink
+    public List<Sprite> SouthIdleChargeAttack
     {
         get
         {
-            return GenerateNewList(_southUpperDrink);
+            return GenerateNewList(_southIdleChargeAttack);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _southUpperDodge;
+    private List<Sprite> _southMoveChargeAttack;
 
-    public List<Sprite> SouthUpperDodge
+    public List<Sprite> SouthMoveChargeAttack
     {
         get
         {
-            return GenerateNewList(_southUpperDodge);
-        }
-    }
-
-    [Header("Lower Body")]
-
-    [SerializeField]
-    private List<Sprite> _southLowerIdle;
-    public List<Sprite> SouthLowerIdle
-    {
-        get
-        {
-            return GenerateNewList(_southLowerIdle);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _southLowerMove;
-
-    public List<Sprite> SouthLowerMove
-    {
-        get
-        {
-            return GenerateNewList(_southLowerMove);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _southLowerAttack;
-
-    public List<Sprite> SouthLowerAttack
-    {
-        get
-        {
-            return GenerateNewList(_southLowerAttack);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _southLowerDrink;
-
-    public List<Sprite> SouthLowerDrink
-    {
-        get
-        {
-            return GenerateNewList(_southLowerDrink);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _southLowerDodge;
-
-    public List<Sprite> SouthLowerDodge
-    {
-        get
-        {
-            return GenerateNewList(_southLowerDodge);
+            return GenerateNewList(_southMoveChargeAttack);
         }
     }
     #endregion
 
-    #region WEST
-    [Header("Upper Body")]
+    #region West
+    [Header("West")]
     [SerializeField]
-    private List<Sprite> _westUpperIdle;
-    public List<Sprite> WestUpperIdle
+    private List<Sprite> _westIdle;
+    public List<Sprite> WestIdle
     {
         get
         {
-            return GenerateNewList(_westUpperIdle);
+            return GenerateNewList(_westIdle);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _westUpperMove;
+    private List<Sprite> _westMove;
 
-    public List<Sprite> WestUpperMove
+    public List<Sprite> WestMove
     {
         get
         {
-            return GenerateNewList(_westUpperMove);
+            return GenerateNewList(_westMove);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _westUpperAttack;
+    private List<Sprite> _westAttack;
 
-    public List<Sprite> WestUpperAttack
+    public List<Sprite> WestAttack
     {
         get
         {
-            return GenerateNewList(_westUpperAttack);
+            return GenerateNewList(_westAttack);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _westUpperDrink;
+    private List<Sprite> _westIdleChargeAttack;
 
-    public List<Sprite> WestUpperDrink
+    public List<Sprite> WestIdleChargeAttack
     {
         get
         {
-            return GenerateNewList(_westUpperDrink);
+            return GenerateNewList(_westIdleChargeAttack);
         }
     }
 
     [SerializeField]
-    private List<Sprite> _westUpperDodge;
+    private List<Sprite> _westMoveChargeAttack;
 
-    public List<Sprite> WestUpperDodge
+    public List<Sprite> WestMoveChargeAttack
     {
         get
         {
-            return GenerateNewList(_westUpperDodge);
-        }
-    }
-
-    [Header("Lower Body")]
-
-    [SerializeField]
-    private List<Sprite> _westLowerIdle;
-    public List<Sprite> WestLowerIdle
-    {
-        get
-        {
-            return GenerateNewList(_westLowerIdle);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _westLowerMove;
-
-    public List<Sprite> WestLowerMove
-    {
-        get
-        {
-            return GenerateNewList(_westLowerMove);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _westLowerAttack;
-
-    public List<Sprite> WestLowerAttack
-    {
-        get
-        {
-            return GenerateNewList(_westLowerAttack);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _westLowerDrink;
-
-    public List<Sprite> WestLowerDrink
-    {
-        get
-        {
-            return GenerateNewList(_westLowerDrink);
-        }
-    }
-
-    [SerializeField]
-    private List<Sprite> _westLowerDodge;
-
-    public List<Sprite> WestLowerDodge
-    {
-        get
-        {
-            return GenerateNewList(_westLowerDodge);
+            return GenerateNewList(_westMoveChargeAttack);
         }
     }
     #endregion

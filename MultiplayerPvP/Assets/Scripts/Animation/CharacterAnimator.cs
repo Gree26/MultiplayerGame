@@ -8,27 +8,13 @@ using UnityEngine;
 public class CharacterAnimator : MonoBehaviour
 {
 
-    public enum CharacterUpperState
+    public enum CharacterState
     {
         IDLE,
         RUN,
-        DRINK,
-        DODGE,
-        ATTACK
-    }
-
-    public enum CharacterLowerState
-    {
-        IDLE,
         ATTACK,
-        RUN,
-        DODGE
-    }
-
-    public enum AttackType
-    {
-        LIGHT,
-        HEAVY
+        CHARGEIDLE,
+        CHARGEMOVE
     }
 
     public enum MoveDirection
@@ -45,7 +31,7 @@ public class CharacterAnimator : MonoBehaviour
     {
         set
         {
-            Debug.Log("Updating direction");
+            //Debug.Log("Updating direction");
             var newDierction = _currentDirection != value;
             var previousDirection = _currentDirection;
             _currentDirection = value;
@@ -55,37 +41,21 @@ public class CharacterAnimator : MonoBehaviour
         }
     }
 
-    private CharacterUpperState _upperState = CharacterUpperState.IDLE;
+    private CharacterState _state = CharacterState.IDLE;
 
-    public CharacterUpperState UpperState
+    public CharacterState State
     {
         set
         {
-            var newValue = _upperState != value;
-            _upperState = value;
+            var newValue = _state != value;
+            _state = value;
             if (newValue)
-                UpperAnimationStateChnge();
-        }
-    }
-
-    private CharacterLowerState _lowerState = CharacterLowerState.IDLE;
-
-    public CharacterLowerState LowerState
-    {
-        set
-        {
-            var newValue = _lowerState != value;
-            _lowerState = value;
-            if (newValue)
-                LowerAnimationStateChnge();
+                AnimationStateChnge();
         }
     }
 
     [SerializeField]
-    private MonoAnimationor _upperBody;
-
-    [SerializeField]
-    private MonoAnimationor _lowerBody;
+    private MonoAnimationor _body;
 
     [SerializeField]
     private MonoAnimationor _helmet;
@@ -97,10 +67,7 @@ public class CharacterAnimator : MonoBehaviour
     private MonoAnimationor _legs;
 
     [SerializeField]
-    private MonoAnimationor _lightWeapon;
-
-    [SerializeField]
-    private MonoAnimationor _heavyWeapon;
+    private MonoAnimationor _weapon;
 
     CancellationTokenSource cts;
 
@@ -114,19 +81,15 @@ public class CharacterAnimator : MonoBehaviour
     [SerializeField]
     private SLegItem _legItem;
     [SerializeField]
-    private SLightWeaponItem _lightWeaponItem;
-    [SerializeField]
-    private SHeavyWeaponItem _heavyWeaponItem;
+    private SLightWeaponItem _weaponItem;
 
     private Vector2Int _direction = Vector2Int.right;
 
-    private List<Sprite> _characterUpperIdle, _characterUpperMove, _characterUpperDrink, _characterUpperAttack, _characterUpperDodge;
-    private List<Sprite> _characterLowerIdle, _characterLowerMove, _characterLowerDrink, _characterLowerAttack, _characterLowerDodge;
-    private List<Sprite> _helmetIdle, _helmetMove, _helmetDrink, _helmetAttack, _helmetDodge;
-    private List<Sprite> _chestIdle, _chestMove, _chestDrink, _chestAttack, _chestDodge;
-    private List<Sprite> _legsIdle, _legsMove, _legsDrink, _legsAttack, _legsDodge;
-    private List<Sprite> _lwIdle, _lwMove, _lwDrink, _lwAttack, _lwDodge;
-    private List<Sprite> _hwIdle, _hwMove, _hwDrink, _hwAttack, _hwDodge;
+    private List<Sprite> _characterIdle, _characterMove, _characterAttack, _characterChargeIdle, _characterChargeMove;
+    private List<Sprite> _helmetIdle, _helmetMove, _helmetAttack, _helmetChargeIdle, _helmetChargeMove;
+    private List<Sprite> _chestIdle, _chestMove, _chestAttack, _chestChargeIdle, _chestChargeMove;
+    private List<Sprite> _legsIdle, _legsMove, _legsAttack, _legsChargeIdle, _legsChargeMove;
+    private List<Sprite> _weaponIdle, _weaponMove, _weaponAttack, _weaponChargeIdle, _weaponChargeMove;
 
     public Vector2Int Direction 
     {
@@ -198,8 +161,7 @@ public class CharacterAnimator : MonoBehaviour
                 WestAnimations();
                 break;
             default:
-                UpperState = CharacterUpperState.IDLE;
-                LowerState = CharacterLowerState.IDLE;
+                State = CharacterState.IDLE;
                 break;
         }
         UpdateAnimation(false);
@@ -207,299 +169,219 @@ public class CharacterAnimator : MonoBehaviour
 
     private void UpdateAnimation(bool reset)
     {
-        switch (_upperState)
+        switch (_state)
         {
-            case CharacterUpperState.IDLE:
-                _upperBody.NewAnimation(_characterUpperIdle, false);
+            case CharacterState.IDLE:
+                _body.NewAnimation(_characterIdle, false);
                 _chest.NewAnimation(_chestIdle, false);
                 _helmet.NewAnimation(_helmetIdle, false);
-                _lightWeapon.NewAnimation(_lwIdle, false);
+                _legs.NewAnimation(_legsIdle, false);
+                _weapon.NewAnimation(_weaponIdle, false);
                 break;
-            case CharacterUpperState.RUN:
-                _upperBody.NewAnimation(_characterUpperMove, false);
+            case CharacterState.RUN:
+                _body.NewAnimation(_characterMove, false);
                 _chest.NewAnimation(_chestMove, false);
                 _helmet.NewAnimation(_helmetMove, false);
-                _lightWeapon.NewAnimation(_lwMove, false);
-                break;
-            case CharacterUpperState.DODGE:
-                _upperBody.NewAnimation(_characterUpperDodge, false);
-                _chest.NewAnimation(_chestDodge, false);
-                _helmet.NewAnimation(_helmetDodge, false);
-                _lightWeapon.NewAnimation(_lwDodge, false);
-                break;
-            case CharacterUpperState.DRINK:
-                _upperBody.NewAnimation(_characterUpperDrink, false);
-                _chest.NewAnimation(_chestDrink, false);
-                _helmet.NewAnimation(_helmetDrink, false);
-                _lightWeapon.NewAnimation(_lwDrink, false);
-                break;
-            case CharacterUpperState.ATTACK:
-                _upperBody.NewAnimation(_characterUpperAttack, false);
-                _chest.NewAnimation(_characterUpperAttack, false);
-                _helmet.NewAnimation(_characterUpperAttack, false);
-                _lightWeapon.NewAnimation(_characterUpperAttack, false);
-                break;
-        }
-
-        switch (_lowerState)
-        {
-            case CharacterLowerState.IDLE:
-                _lowerBody.NewAnimation(_characterLowerIdle, false);
-                _legs.NewAnimation(_legsIdle, false);
-                break;
-            case CharacterLowerState.RUN:
-                _lowerBody.NewAnimation(_characterLowerMove, false);
                 _legs.NewAnimation(_legsMove, false);
+                _weapon.NewAnimation(_weaponMove, false);
                 break;
-            case CharacterLowerState.DODGE:
-                _lowerBody.NewAnimation(_characterLowerDodge, false);
-                _legs.NewAnimation(_legsDodge, false);
-                break;
-            case CharacterLowerState.ATTACK:
-                _lowerBody.NewAnimation(_characterLowerAttack, false);
+            case CharacterState.ATTACK:
+                _body.NewAnimation(_characterAttack, false);
+                _chest.NewAnimation(_chestAttack, false);
+                _helmet.NewAnimation(_helmetAttack, false);
                 _legs.NewAnimation(_legsAttack, false);
+                _weapon.NewAnimation(_weaponAttack, false);
                 break;
+            case CharacterState.CHARGEIDLE:
+                _body.NewAnimation(_characterChargeIdle, false);
+                _chest.NewAnimation(_chestChargeIdle, false);
+                _helmet.NewAnimation(_helmetChargeIdle, false);
+                _legs.NewAnimation(_legsChargeIdle, false);
+                _weapon.NewAnimation(_weaponChargeIdle, false);
+                break;
+            case CharacterState.CHARGEMOVE:
+                _body.NewAnimation(_characterChargeMove, false);
+                _chest.NewAnimation(_chestChargeMove, false);
+                _helmet.NewAnimation(_helmetChargeMove, false);
+                _legs.NewAnimation(_legsChargeMove, false);
+                _weapon.NewAnimation(_weaponChargeMove, false);
+                break;
+
         }
     }
 
     private void NorthAnimations()
     {
-        _characterUpperIdle = character?.NorthUpperIdle;
-        _characterUpperMove = character?.NorthUpperMove;
-        _characterUpperDrink = character?.NorthUpperDrink;
-        _characterUpperDodge = character?.NorthUpperDodge;
-        _characterUpperAttack = character?.NorthUpperAttack;
-
-        _characterLowerIdle = character?.NorthLowerIdle;
-        _characterLowerMove = character?.NorthLowerMove;
-        _characterLowerDrink = character?.NorthLowerDrink;
-        _characterLowerDodge = character?.NorthLowerDodge;
-        _characterLowerAttack = character?.NorthLowerAttack;
+        _characterIdle = character?.NorthIdle;
+        _characterMove = character?.NorthMove;
+        _characterAttack = character?.NorthAttack;
+        _characterChargeIdle = character?.NorthIdleChargeAttack;
+        _characterChargeMove = character?.NorthMoveChargeAttack;
 
         _helmetIdle = _helmetItem?.NorthIdle;
         _helmetMove = _helmetItem?.NorthMove;
-        _helmetDrink = _helmetItem?.NorthDrink;
         _helmetAttack = _helmetItem?.NorthAttack;
-        _helmetDodge = _helmetItem?.NorthDodge;
+        _helmetChargeIdle = _helmetItem?.NorthChargeIdle;
+        _helmetChargeMove = _helmetItem?.NorthChargeMove;
 
         _chestIdle = _chestItem?.NorthIdle;
         _chestMove = _chestItem?.NorthMove;
-        _chestDrink = _chestItem?.NorthDrink;
         _chestAttack = _chestItem?.NorthAttack;
-        _chestDodge = _chestItem?.NorthDodge;
+        _chestChargeIdle = _chestItem?.NorthChargeIdle;
+        _chestChargeMove = _chestItem?.NorthChargeMove;
 
         _legsIdle = _legItem?.NorthIdle;
         _legsMove = _legItem?.NorthMove;
-        _legsDrink = _legItem?.NorthDrink;
         _legsAttack = _legItem?.NorthAttack;
-        _legsDodge = _legItem?.NorthDodge;
+        _legsChargeIdle = _legItem?.NorthChargeIdle;
+        _legsChargeMove = _legItem?.NorthChargeMove;
 
-        _lwIdle = _lightWeaponItem?.NorthIdle;
-        _lwMove = _lightWeaponItem?.NorthMove;
-        _lwDrink = _lightWeaponItem?.NorthDrink;
-        _lwAttack = _lightWeaponItem?.NorthAttack;
-        _lwDodge = _lightWeaponItem?.NorthDodge;
-
-        //_hwIdle = _heavyWeaponItem?.NorthIdle;
-        //_hwMove = _heavyWeaponItem?.NorthMove;
-        //_hwDrink = _heavyWeaponItem?.NorthDrink;
-        //_hwAttack = _heavyWeaponItem?.NorthAttack;
-        //_hwDodge = _heavyWeaponItem?.NorthDodge;
+        _weaponIdle = _weaponItem?.NorthIdle;
+        _weaponMove = _weaponItem?.NorthMove;
+        _weaponAttack = _weaponItem?.NorthAttack;
+        _weaponChargeIdle = _weaponItem?.NorthChargeIdle;
+        _weaponChargeMove = _weaponItem?.NorthChargeMove;
     }
     private void EastAnimations()
     {
-        _characterUpperIdle = character?.EastUpperIdle;
-        _characterUpperMove = character?.EastUpperMove;
-        _characterUpperDrink = character?.EastUpperDrink;
-        _characterUpperDodge = character?.EastUpperDodge;
-        _characterUpperAttack = character?.EastUpperAttack;
-
-        _characterLowerIdle = character?.EastLowerIdle;
-        _characterLowerMove = character?.EastLowerMove;
-        _characterLowerDrink = character?.EastLowerDrink;
-        _characterLowerDodge = character?.EastLowerDodge;
-        _characterLowerAttack = character?.EastLowerAttack;
+        _characterIdle = character?.EastIdle;
+        _characterMove = character?.EastMove;
+        _characterAttack = character?.EastAttack;
+        _characterChargeIdle = character?.EastIdleChargeAttack;
+        _characterChargeMove = character?.EastMoveChargeAttack;
 
         _helmetIdle = _helmetItem?.EastIdle;
         _helmetMove = _helmetItem?.EastMove;
-        _helmetDrink = _helmetItem?.EastDrink;
         _helmetAttack = _helmetItem?.EastAttack;
-        _helmetDodge = _helmetItem?.EastDodge;
+        _helmetChargeIdle = _helmetItem?.EastChargeIdle;
+        _helmetChargeMove = _helmetItem?.EastChargeMove;
 
         _chestIdle = _chestItem?.EastIdle;
         _chestMove = _chestItem?.EastMove;
-        _chestDrink = _chestItem?.EastDrink;
         _chestAttack = _chestItem?.EastAttack;
-        _chestDodge = _chestItem?.EastDodge;
+        _chestChargeIdle = _chestItem?.EastChargeIdle;
+        _chestChargeMove = _chestItem?.EastChargeMove;
 
         _legsIdle = _legItem?.EastIdle;
         _legsMove = _legItem?.EastMove;
-        _legsDrink = _legItem?.EastDrink;
         _legsAttack = _legItem?.EastAttack;
-        _legsDodge = _legItem?.EastDodge;
+        _legsChargeIdle = _legItem?.EastChargeIdle;
+        _legsChargeMove = _legItem?.EastChargeMove;
 
-        _lwIdle = _lightWeaponItem?.EastIdle;
-        _lwMove = _lightWeaponItem?.EastMove;
-        _lwDrink = _lightWeaponItem?.EastDrink;
-        _lwAttack = _lightWeaponItem?.EastAttack;
-        _lwDodge = _lightWeaponItem?.EastDodge;
-
-        //_hwIdle = _heavyWeaponItem?.EastIdle;
-        //_hwMove = _heavyWeaponItem?.EastMove;
-        //_hwDrink = _heavyWeaponItem?.EastDrink;
-        //_hwAttack = _heavyWeaponItem?.EastAttack;
-        //_hwDodge = _heavyWeaponItem?.EastDodge;
+        _weaponIdle = _weaponItem?.EastIdle;
+        _weaponMove = _weaponItem?.EastMove;
+        _weaponAttack = _weaponItem?.EastAttack;
+        _weaponChargeIdle = _weaponItem?.EastChargeIdle;
+        _weaponChargeMove = _weaponItem?.EastChargeMove;
     }
     private void SouthAnimations()
     {
-        _characterUpperIdle = character?.SouthUpperIdle;
-        _characterUpperMove = character?.SouthUpperMove;
-        _characterUpperDrink = character?.SouthUpperDrink;
-        _characterUpperDodge = character?.SouthUpperDodge;
-        _characterUpperAttack = character?.SouthUpperAttack;
-
-        _characterLowerIdle = character?.SouthLowerIdle;
-        _characterLowerMove = character?.SouthLowerMove;
-        _characterLowerDrink = character?.SouthLowerDrink;
-        _characterLowerDodge = character?.SouthLowerDodge;
-        _characterLowerAttack = character?.SouthLowerAttack;
+        _characterIdle = character?.SouthIdle;
+        _characterMove = character?.SouthMove;
+        _characterAttack = character?.SouthAttack;
+        _characterChargeIdle = character?.SouthIdleChargeAttack;
+        _characterChargeMove = character?.SouthMoveChargeAttack;
 
         _helmetIdle = _helmetItem?.SouthIdle;
         _helmetMove = _helmetItem?.SouthMove;
-        _helmetDrink = _helmetItem?.SouthDrink;
         _helmetAttack = _helmetItem?.SouthAttack;
-        _helmetDodge = _helmetItem?.SouthDodge;
+        _helmetChargeIdle = _helmetItem?.SouthChargeIdle;
+        _helmetChargeMove = _helmetItem?.SouthChargeMove;
 
         _chestIdle = _chestItem?.SouthIdle;
         _chestMove = _chestItem?.SouthMove;
-        _chestDrink = _chestItem?.SouthDrink;
         _chestAttack = _chestItem?.SouthAttack;
-        _chestDodge = _chestItem?.SouthDodge;
+        _chestChargeIdle = _chestItem?.SouthChargeIdle;
+        _chestChargeMove = _chestItem?.SouthChargeMove;
 
         _legsIdle = _legItem?.SouthIdle;
         _legsMove = _legItem?.SouthMove;
-        _legsDrink = _legItem?.SouthDrink;
         _legsAttack = _legItem?.SouthAttack;
-        _legsDodge = _legItem?.SouthDodge;
+        _legsChargeIdle = _legItem?.SouthChargeIdle;
+        _legsChargeMove = _legItem?.SouthChargeMove;
 
-        _lwIdle = _lightWeaponItem?.SouthIdle;
-        _lwMove = _lightWeaponItem?.SouthMove;
-        _lwDrink = _lightWeaponItem?.SouthDrink;
-        _lwAttack = _lightWeaponItem?.SouthAttack;
-        _lwDodge = _lightWeaponItem?.SouthDodge;
-
-        //_hwIdle = _heavyWeaponItem?.SouthIdle;
-        //_hwMove = _heavyWeaponItem?.SouthMove;
-        //_hwDrink = _heavyWeaponItem?.SouthDrink;
-        //_hwAttack = _heavyWeaponItem?.SouthAttack;
-        //_hwDodge = _heavyWeaponItem?.SouthDodge;
+        _weaponIdle = _weaponItem?.SouthIdle;
+        _weaponMove = _weaponItem?.SouthMove;
+        _weaponAttack = _weaponItem?.SouthAttack;
+        _weaponChargeIdle = _weaponItem?.SouthChargeIdle;
+        _weaponChargeMove = _weaponItem?.SouthChargeMove;
     }
     private void WestAnimations()
     {
-        _characterUpperIdle = character?.WestUpperIdle;
-        _characterUpperMove = character?.WestUpperMove;
-        _characterUpperDrink = character?.WestUpperDrink;
-        _characterUpperDodge = character?.WestUpperDodge;
-        _characterUpperAttack = character?.WestUpperAttack;
-
-        _characterLowerIdle = character?.WestLowerIdle;
-        _characterLowerMove = character?.WestLowerMove;
-        _characterLowerDrink = character?.WestLowerDrink;
-        _characterLowerDodge = character?.WestLowerDodge;
-        _characterLowerAttack = character?.WestLowerAttack;
+        _characterIdle = character?.WestIdle;
+        _characterMove = character?.WestMove;
+        _characterAttack = character?.WestAttack;
+        _characterChargeIdle = character?.WestIdleChargeAttack;
+        _characterChargeMove = character?.WestMoveChargeAttack;
 
         _helmetIdle = _helmetItem?.WestIdle;
         _helmetMove = _helmetItem?.WestMove;
-        _helmetDrink = _helmetItem?.WestDrink;
         _helmetAttack = _helmetItem?.WestAttack;
-        _helmetDodge = _helmetItem?.WestDodge;
+        _helmetChargeIdle = _helmetItem?.WestChargeIdle;
+        _helmetChargeMove = _helmetItem?.WestChargeMove;
 
         _chestIdle = _chestItem?.WestIdle;
         _chestMove = _chestItem?.WestMove;
-        _chestDrink = _chestItem?.WestDrink;
         _chestAttack = _chestItem?.WestAttack;
-        _chestDodge = _chestItem?.WestDodge;
+        _chestChargeIdle = _chestItem?.WestChargeIdle;
+        _chestChargeMove = _chestItem?.WestChargeMove;
 
         _legsIdle = _legItem?.WestIdle;
         _legsMove = _legItem?.WestMove;
-        _legsDrink = _legItem?.WestDrink;
         _legsAttack = _legItem?.WestAttack;
-        _legsDodge = _legItem?.WestDodge;
+        _legsChargeIdle = _legItem?.WestChargeIdle;
+        _legsChargeMove = _legItem?.WestChargeMove;
 
-        _lwIdle = _lightWeaponItem?.WestIdle;
-        _lwMove = _lightWeaponItem?.WestMove;
-        _lwDrink = _lightWeaponItem?.WestDrink;
-        _lwAttack = _lightWeaponItem?.WestAttack;
-        _lwDodge = _lightWeaponItem?.WestDodge;
-
-        //_hwIdle = _heavyWeaponItem?.WestIdle;
-        //_hwMove = _heavyWeaponItem?.WestMove;
-        //_hwDrink = _heavyWeaponItem?.WestDrink;
-        //_hwAttack = _heavyWeaponItem?.WestAttack;
-        //_hwDodge = _heavyWeaponItem?.WestDodge;
+        _weaponIdle = _weaponItem?.WestIdle;
+        _weaponMove = _weaponItem?.WestMove;
+        _weaponAttack = _weaponItem?.WestAttack;
+        _weaponChargeIdle = _weaponItem?.WestChargeIdle;
+        _weaponChargeMove = _weaponItem?.WestChargeMove;
     }
 
 
-    private void UpperAnimationStateChnge()
+    private void AnimationStateChnge()
     {
-        switch (_upperState)
+        switch (_state)
         {
-            case CharacterUpperState.IDLE:
-                _upperBody.NewAnimation(_characterUpperIdle, true);
+            case CharacterState.IDLE:
+                _body.NewAnimation(_characterIdle, true);
                 _chest.NewAnimation(_chestIdle, true);
                 _helmet.NewAnimation(_helmetIdle, true);
-                _lightWeapon.NewAnimation(_lwIdle, true);
+                _legs.NewAnimation(_legsIdle, true);
+                _weapon.NewAnimation(_weaponIdle, true);
                 break;
-            case CharacterUpperState.RUN:
-                _upperBody.NewAnimation(_characterUpperMove, true);
+            case CharacterState.RUN:
+                _body.NewAnimation(_characterMove, true);
                 _chest.NewAnimation(_chestMove, true);
                 _helmet.NewAnimation(_helmetMove, true);
-                _lightWeapon.NewAnimation(_lwMove, true);
+                _legs.NewAnimation(_legsMove, true);
+                _weapon.NewAnimation(_weaponMove, true);
                 break;
-            case CharacterUpperState.DODGE:
-                _upperBody.NewAnimation(_characterUpperDodge, true);
-                _chest.NewAnimation(_chestDodge, true);
-                _helmet.NewAnimation(_helmetDodge, true);
-                _lightWeapon.NewAnimation(_lwDodge, true);
+            case CharacterState.ATTACK:
+                _body.NewAnimation(_characterAttack, true);
+                _chest.NewAnimation(_chestAttack, true);
+                _helmet.NewAnimation(_helmetAttack, true);
+                _legs.NewAnimation(_legsAttack, true);
+                _weapon.NewAnimation(_weaponAttack, true);
                 break;
-            case CharacterUpperState.DRINK:
-                _upperBody.NewAnimation(_characterUpperDrink, true);
-                _chest.NewAnimation(_chestDrink, true);
-                _helmet.NewAnimation(_helmetDrink, true);
-                _lightWeapon.NewAnimation(_lwDrink, true);
+            case CharacterState.CHARGEIDLE:
+                _body.NewAnimation(_characterChargeIdle, true);
+                _chest.NewAnimation(_chestChargeIdle, true);
+                _helmet.NewAnimation(_helmetChargeIdle, true);
+                _legs.NewAnimation(_legsChargeIdle, true);
+                _weapon.NewAnimation(_weaponChargeIdle, true);
                 break;
-            case CharacterUpperState.ATTACK:
-                _upperBody.NewAnimation(_characterUpperAttack, true);
-                _chest.NewAnimation(_characterUpperAttack, true);
-                _helmet.NewAnimation(_characterUpperAttack, true);
-                _lightWeapon.NewAnimation(_characterUpperAttack, true);
+            case CharacterState.CHARGEMOVE:
+                _body.NewAnimation(_characterChargeMove, true);
+                _chest.NewAnimation(_chestChargeMove, true);
+                _helmet.NewAnimation(_helmetChargeMove, true);
+                _legs.NewAnimation(_legsChargeMove, true);
+                _weapon.NewAnimation(_weaponChargeMove, true);
                 break;
         }
     }
 
-    private void LowerAnimationStateChnge()
-    {
-        
-        switch (_lowerState)
-        {
-            case CharacterLowerState.IDLE:
-                _lowerBody.NewAnimation(_characterLowerIdle, true);
-                _legs.NewAnimation(_legsIdle, true);
-                break;
-            case CharacterLowerState.RUN:
-                _lowerBody.NewAnimation(_characterLowerMove, true);
-                _legs.NewAnimation(_legsMove, true);
-                break;
-            case CharacterLowerState.DODGE:
-                _lowerBody.NewAnimation(_characterLowerDodge, true);
-                _legs.NewAnimation(_legsDodge, true);
-                break;
-            case CharacterLowerState.ATTACK:
-                _lowerBody.NewAnimation(_characterLowerAttack, true);
-                _legs.NewAnimation(_legsAttack, true);
-                break;
-        }
-    }
     private void OnApplicationQuit()
     {
         AsyncAnimationHandler();
@@ -534,348 +416,13 @@ public class CharacterAnimator : MonoBehaviour
         while (Application.isPlaying)
         {
             token.ThrowIfCancellationRequested();
-            await Task.Delay(100);
+            await Task.Delay(150);
 
-            _upperBody.NextFrame();
-            _lowerBody.NextFrame();
-            _helmet.NextFrame();
-            _chest.NextFrame();
-            _legs.NextFrame();
-            _lightWeapon.NextFrame();
+            _body?.NextFrame();
+            _helmet?.NextFrame();
+            _chest?.NextFrame();
+            _legs?.NextFrame();
+            _weapon?.NextFrame();
         }
     }
-
-    /*
-    
-    public void NewGear(SHelmetItem helmet, SChestItem chest, SLegItem legs, SLightWeaponItem lightWeapon, SHeavyWeaponItem heavyWeapon)
-    {
-        _helmetItem = helmet;
-        _chestItem = chest;
-        _legItem = legs;
-        _lightWeaponItem = lightWeapon;
-        //_heavyWeaponItem = heavyWeapon;
-        UpdateAllBody();
-    }
-
-    public void IsMoving(bool isMoving)
-    {
-        bool newValue = _moving != isMoving;
-
-        _moving = isMoving;
-
-        if (newValue)
-        {
-            //Debug.Log("New Value for move: " + isMoving);
-            UpdateAllBody();
-        }
-    }
-
-    private void UpdateAllBody()
-    {
-        if (_dodging)
-        {
-            
-            _upperBody.NewAnimation(_characterUpperDodge);
-            _lowerBody.NewAnimation(_characterLowerDodge);
-            _chest.NewAnimation(_chestDodge);
-            _helmet.NewAnimation(_helmetDodge);
-            _legs.NewAnimation(_legsDodge);
-            _lightWeapon.NewAnimation(_lwDodge);
-            //_heavyWeapon.NewAnimation(_hwDodge);
-            return;
-        }
-
-        if (_lightAttacking)
-        {
-            _upperBody.NewAnimation(_characterUpperAttack);
-            _chest.NewAnimation(_chestAttack);
-            _helmet.NewAnimation(_helmetAttack);
-            _lightWeapon.NewAnimation(_lwAttack);
-            //_heavyWeapon.NewAnimation(_hwAttack);
-            UpdateLowerBody();
-            return;
-        }
-
-        if (_drinking)
-        {
-            _upperBody.NewAnimation(_characterUpperDrink);
-            _chest.NewAnimation(_chestDrink);
-            _helmet.NewAnimation(_helmetDrink);
-            _lightWeapon.NewAnimation(_lwDrink);
-            //_heavyWeapon.NewAnimation(_hwDrink);
-            UpdateLowerBody();
-            return;
-        }
-
-        UpdateLowerBody();
-        UpdateUpperBody();
-    }
-
-    private void UpdateLowerBody()
-    {
-        if (_moving)
-        {
-            _lowerBody.NewAnimation(_characterLowerMove);
-            _legs.NewAnimation(_legsMove);
-            return;
-        }
-        _lowerBody.NewAnimation(_characterLowerIdle);
-        _legs.NewAnimation(_legsIdle);
-    }
-
-    private void UpdateUpperBody()
-    {
-        if (_moving)
-        {
-            _upperBody.NewAnimation(_characterUpperMove);
-            _chest.NewAnimation(_chestMove);
-            _helmet.NewAnimation(_helmetMove);
-            _lightWeapon.NewAnimation(_lwMove);
-            //_heavyWeapon.NewAnimation(_hwMove);
-            return;
-        }
-        _upperBody.NewAnimation(_characterUpperIdle);
-        _chest.NewAnimation(_chestIdle);
-        _helmet.NewAnimation(_helmetIdle);
-        _lightWeapon.NewAnimation(_lwIdle);
-        //_heavyWeapon.NewAnimation(_hwIdle);
-    }
-
-    public void IsHeavyAttack(bool isAttacking)
-    {
-        bool newValue = _lightAttacking != isAttacking;
-
-        _lightAttacking = isAttacking;
-
-        if (newValue)
-        {
-            UpdateLowerBody();
-        }
-    }
-
-    public void LightAttack()
-    {
-        bool newValue = _lightAttacking != true;
-
-        _lightAttacking = true;
-
-        if (newValue)
-        {
-            UpdateLowerBody();
-        }
-    }
-
-    public void Dodge()
-    {
-        _dodging = true;
-        UpdateAllBody();
-    }
-
-    
-
-    //private List<Sprite> _characterUpperIdle, _characterUpperMove, _characterUpperDrink, _characterUpperAttack, _characterUpperDodge;
-    //private List<Sprite> _characterLowerIdle, _characterLowerMove, _characterLowerDrink, _characterLowerAttack, _characterLowerDodge;
-    //private List<Sprite> _helmetIdle, _helmetMove, _helmetDrink, _helmetAttack, _helmetDodge;
-    //private List<Sprite> _chestIdle, _chestMove, _chestDrink, _chestAttack, _chestDodge;
-    //private List<Sprite> _legsIdle, _legsMove, _legsDrink, _legsAttack, _legsDodge;
-    //private List<Sprite> _lwIdle, _lwMove, _lwDrink, _lwAttack, _lwDodge;
-
-    private void NewDirection(Vector2Int newDirection)
-    {
-        if (newDirection == Vector2Int.zero)
-        {
-            return;
-        }
-
-        //Debug.Log("New Drection: " + newDirection);
-
-        if (newDirection == Vector2.up)
-        {
-            _characterUpperIdle = character?.NorthUpperIdle;
-            _characterUpperMove = character?.NorthUpperMove;
-            _characterUpperDrink = character?.NorthUpperDrink;
-            _characterUpperDodge = character?.NorthUpperDodge;
-            _characterUpperAttack = character?.NorthUpperAttack;
-
-            _characterLowerIdle = character?.NorthLowerIdle;
-            _characterLowerMove = character?.NorthLowerMove;
-            _characterLowerDrink = character?.NorthLowerDrink;
-            _characterLowerDodge = character?.NorthLowerDodge;
-            _characterLowerAttack = character?.NorthLowerAttack;
-
-            _helmetIdle = _helmetItem?.NorthIdle;
-            _helmetMove = _helmetItem?.NorthMove;
-            _helmetDrink = _helmetItem?.NorthDrink;
-            _helmetAttack = _helmetItem?.NorthAttack;
-            _helmetDodge = _helmetItem?.NorthDodge;
-
-            _chestIdle = _chestItem?.NorthIdle;
-            _chestMove = _chestItem?.NorthMove;
-            _chestDrink = _chestItem?.NorthDrink;
-            _chestAttack = _chestItem?.NorthAttack;
-            _chestDodge = _chestItem?.NorthDodge;
-
-            _legsIdle = _legItem?.NorthIdle;
-            _legsMove = _legItem?.NorthMove;
-            _legsDrink = _legItem?.NorthDrink;
-            _legsAttack = _legItem?.NorthAttack;
-            _legsDodge = _legItem?.NorthDodge;
-
-            _lwIdle = _lightWeaponItem?.NorthIdle;
-            _lwMove = _lightWeaponItem?.NorthMove;
-            _lwDrink = _lightWeaponItem?.NorthDrink;
-            _lwAttack = _lightWeaponItem?.NorthAttack;
-            _lwDodge = _lightWeaponItem?.NorthDodge;
-
-            //_hwIdle = _heavyWeaponItem?.NorthIdle;
-            //_hwMove = _heavyWeaponItem?.NorthMove;
-            //_hwDrink = _heavyWeaponItem?.NorthDrink;
-            //_hwAttack = _heavyWeaponItem?.NorthAttack;
-            //_hwDodge = _heavyWeaponItem?.NorthDodge;
-        }
-
-        else if (newDirection == Vector2.down)
-        {
-            _characterUpperIdle = character?.SouthUpperIdle;
-            _characterUpperMove = character?.SouthUpperMove;
-            _characterUpperDrink = character?.SouthUpperDrink;
-            _characterUpperDodge = character?.SouthUpperDodge;
-            _characterUpperAttack = character?.SouthUpperAttack;
-
-            _characterLowerIdle = character?.SouthLowerIdle;
-            _characterLowerMove = character?.SouthLowerMove;
-            _characterLowerDrink = character?.SouthLowerDrink;
-            _characterLowerDodge = character?.SouthLowerDodge;
-            _characterLowerAttack = character?.SouthLowerAttack;
-
-            _helmetIdle = _helmetItem?.SouthIdle;
-            _helmetMove = _helmetItem?.SouthMove;
-            _helmetDrink = _helmetItem?.SouthDrink;
-            _helmetAttack = _helmetItem?.SouthAttack;
-            _helmetDodge = _helmetItem?.SouthDodge;
-
-            _chestIdle = _chestItem?.SouthIdle;
-            _chestMove = _chestItem?.SouthMove;
-            _chestDrink = _chestItem?.SouthDrink;
-            _chestAttack = _chestItem?.SouthAttack;
-            _chestDodge = _chestItem?.SouthDodge;
-
-            _legsIdle = _legItem?.SouthIdle;
-            _legsMove = _legItem?.SouthMove;
-            _legsDrink = _legItem?.SouthDrink;
-            _legsAttack = _legItem?.SouthAttack;
-            _legsDodge = _legItem?.SouthDodge;
-
-            _lwIdle = _lightWeaponItem?.SouthIdle;
-            _lwMove = _lightWeaponItem?.SouthMove;
-            _lwDrink = _lightWeaponItem?.SouthDrink;
-            _lwAttack = _lightWeaponItem?.SouthAttack;
-            _lwDodge = _lightWeaponItem?.SouthDodge;
-
-            //_hwIdle = _heavyWeaponItem?.SouthIdle;
-            //_hwMove = _heavyWeaponItem?.SouthMove;
-            //_hwDrink = _heavyWeaponItem?.SouthDrink;
-            //_hwAttack = _heavyWeaponItem?.SouthAttack;
-            //_hwDodge = _heavyWeaponItem?.SouthDodge;
-        }
-
-        else if (newDirection == Vector2.right)
-        {
-            _characterUpperIdle = character?.EastUpperIdle;
-            _characterUpperMove = character?.EastUpperMove;
-            _characterUpperDrink = character?.EastUpperDrink;
-            _characterUpperDodge = character?.EastUpperDodge;
-            _characterUpperAttack = character?.EastUpperAttack;
-
-            _characterLowerIdle = character?.EastLowerIdle;
-            _characterLowerMove = character?.EastLowerMove;
-            _characterLowerDrink = character?.EastLowerDrink;
-            _characterLowerDodge = character?.EastLowerDodge;
-            _characterLowerAttack = character?.EastLowerAttack;
-
-            _helmetIdle = _helmetItem?.EastIdle;
-            _helmetMove = _helmetItem?.EastMove;
-            _helmetDrink = _helmetItem?.EastDrink;
-            _helmetAttack = _helmetItem?.EastAttack;
-            _helmetDodge = _helmetItem?.EastDodge;
-
-            _chestIdle = _chestItem?.EastIdle;
-            _chestMove = _chestItem?.EastMove;
-            _chestDrink = _chestItem?.EastDrink;
-            _chestAttack = _chestItem?.EastAttack;
-            _chestDodge = _chestItem?.EastDodge;
-
-            _legsIdle = _legItem?.EastIdle;
-            _legsMove = _legItem?.EastMove;
-            _legsDrink = _legItem?.EastDrink;
-            _legsAttack = _legItem?.EastAttack;
-            _legsDodge = _legItem?.EastDodge;
-
-            _lwIdle = _lightWeaponItem?.EastIdle;
-            _lwMove = _lightWeaponItem?.EastMove;
-            _lwDrink = _lightWeaponItem?.EastDrink;
-            _lwAttack = _lightWeaponItem?.EastAttack;
-            _lwDodge = _lightWeaponItem?.EastDodge;
-
-            //_hwIdle = _heavyWeaponItem?.EastIdle;
-            //_hwMove = _heavyWeaponItem?.EastMove;
-            //_hwDrink = _heavyWeaponItem?.EastDrink;
-            //_hwAttack = _heavyWeaponItem?.EastAttack;
-            //_hwDodge = _heavyWeaponItem?.EastDodge;
-        }
-
-        else if (newDirection == Vector2.left)
-        {
-            _characterUpperIdle = character?.WestUpperIdle;
-            _characterUpperMove = character?.WestUpperMove;
-            _characterUpperDrink = character?.WestUpperDrink;
-            _characterUpperDodge = character?.WestUpperDodge;
-            _characterUpperAttack = character?.WestUpperAttack;
-
-            _characterLowerIdle = character?.WestLowerIdle;
-            _characterLowerMove = character?.WestLowerMove;
-            _characterLowerDrink = character?.WestLowerDrink;
-            _characterLowerDodge = character?.WestLowerDodge;
-            _characterLowerAttack = character?.WestLowerAttack;
-
-            _helmetIdle = _helmetItem?.WestIdle;
-            _helmetMove = _helmetItem?.WestMove;
-            _helmetDrink = _helmetItem?.WestDrink;
-            _helmetAttack = _helmetItem?.WestAttack;
-            _helmetDodge = _helmetItem?.WestDodge;
-
-            _chestIdle = _chestItem?.WestIdle;
-            _chestMove = _chestItem?.WestMove;
-            _chestDrink = _chestItem?.WestDrink;
-            _chestAttack = _chestItem?.WestAttack;
-            _chestDodge = _chestItem?.WestDodge;
-
-            _legsIdle = _legItem?.WestIdle;
-            _legsMove = _legItem?.WestMove;
-            _legsDrink = _legItem?.WestDrink;
-            _legsAttack = _legItem?.WestAttack;
-            _legsDodge = _legItem?.WestDodge;
-
-            _lwIdle = _lightWeaponItem?.WestIdle;
-            _lwMove = _lightWeaponItem?.WestMove;
-            _lwDrink = _lightWeaponItem?.WestDrink;
-            _lwAttack = _lightWeaponItem?.WestAttack;
-            _lwDodge = _lightWeaponItem?.WestDodge;
-
-            //_hwIdle = _heavyWeaponItem?.WestIdle;
-            //_hwMove = _heavyWeaponItem?.WestMove;
-            //_hwDrink = _heavyWeaponItem?.WestDrink;
-            //_hwAttack = _heavyWeaponItem?.WestAttack;
-            //_hwDodge = _heavyWeaponItem?.WestDodge;
-        }
-        UpdateAllBody();
-    }
-
-    private void UpdateSprites()
-    {
-
-    }
-
-    
-    */
 }

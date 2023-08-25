@@ -11,13 +11,16 @@ public abstract class SGearItem : SItem
     protected int armor = 0;
 
     [SerializeField]
-    protected int dex = 0;
+    protected int chaos = 0;
 
     [SerializeField]
-    protected int magic = 0;
+    protected int order = 0;
 
     [SerializeField]
-    protected int knowledge = 0;
+    protected int creation = 0;
+
+    [SerializeField]
+    protected int destruction = 0;
 
     public SGearItem()
     {

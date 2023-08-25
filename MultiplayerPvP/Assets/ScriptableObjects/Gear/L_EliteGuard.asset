@@ -15,8 +15,8 @@ MonoBehaviour:
   _itemName: '[ELITE GUARD] Leg Armor'
   _rarity: {fileID: 11400000, guid: 01c85b485ee2f7b4096ed017cce645d9, type: 2}
   icon: {fileID: 0}
-  _itemImage:
-  - {fileID: 21300000, guid: a01a33437b07fd7458ef7b0876bbeddb, type: 3}
+  _id: 103
+  _itemImage: {fileID: 0}
   health: 0
   armor: 0
   dex: 0

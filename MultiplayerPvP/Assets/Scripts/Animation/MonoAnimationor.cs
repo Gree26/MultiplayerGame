@@ -73,6 +73,7 @@ public abstract class MonoAnimationor : MonoBehaviour
         animationSpeed = animationDelay;
         currentFrame = 0;
         SetAnimationList(animationStrip);
+        myRenderer.sprite = currentAnimation[currentFrame];
     }
 
     private void NewAnimationNoReset(List<Sprite> animationStrip, float animationDelay)
@@ -90,6 +91,7 @@ public abstract class MonoAnimationor : MonoBehaviour
             currentFrame = 0;
         }
         SetAnimationList(animationStrip);
+        myRenderer.sprite = currentAnimation[currentFrame];
     }
 
     /// <summary>

@@ -108,14 +108,12 @@ public class PlayerController : MonoBehaviour
         if (_inputVector.Equals(Vector2.zero))
         {
             myAnimator.Direction = inputVector;
-            myAnimator.UpperState = CharacterAnimator.CharacterUpperState.IDLE;
-            myAnimator.LowerState = CharacterAnimator.CharacterLowerState.IDLE;
+            myAnimator.State = CharacterAnimator.CharacterState.IDLE;
         }
         else
         {
             myAnimator.Direction = inputVector;
-            myAnimator.UpperState = CharacterAnimator.CharacterUpperState.RUN;
-            myAnimator.LowerState = CharacterAnimator.CharacterLowerState.RUN;
+            myAnimator.State = CharacterAnimator.CharacterState.RUN;
         }
     }
 

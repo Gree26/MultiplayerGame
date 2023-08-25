@@ -18,8 +18,8 @@ public class DodgeState : State<UserStateController>
         base.Init(parent);
         parent.StartDodgeCooldown();
         _myAnimator = parent.MyAnimator;
-        _myAnimator.UpperState = CharacterAnimator.CharacterUpperState.DODGE;
-        _myAnimator.LowerState = CharacterAnimator.CharacterLowerState.DODGE;
+        //_myAnimator.UpperState = CharacterAnimator.CharacterUpperState.DODGE;
+        //_myAnimator.LowerState = CharacterAnimator.CharacterLowerState.DODGE;
         Debug.Log("Dodge Entered");
     }
 

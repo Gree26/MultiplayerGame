@@ -45,26 +45,26 @@ public class SArmorItem : SGearItem
     }
 
     [SerializeField]
-    private List<Sprite> _northDrink;
+    private List<Sprite> _northChargeIdle;
 
-    public List<Sprite> NorthDrink
+    public List<Sprite> NorthChargeIdle
     {
         get
         {
-            List<Sprite> newList = GenerateNewList(_northDrink);
+            List<Sprite> newList = GenerateNewList(_northChargeIdle);
 
             return newList;
         }
     }
 
     [SerializeField]
-    private List<Sprite> _northDodge;
+    private List<Sprite> _northChargeMove;
 
-    public List<Sprite> NorthDodge
+    public List<Sprite> NorthChargeMove
     {
         get
         {
-            List<Sprite> newList = GenerateNewList(_northDodge);
+            List<Sprite> newList = GenerateNewList(_northChargeMove);
 
             return newList;
         }
@@ -111,26 +111,26 @@ public class SArmorItem : SGearItem
     }
 
     [SerializeField]
-    private List<Sprite> _eastDrink;
+    private List<Sprite> _eastChargeIdle;
 
-    public List<Sprite> EastDrink
+    public List<Sprite> EastChargeIdle
     {
         get
         {
-            List<Sprite> newList = GenerateNewList(_eastDrink);
+            List<Sprite> newList = GenerateNewList(_eastChargeIdle);
 
             return newList;
         }
     }
 
     [SerializeField]
-    private List<Sprite> _eastDodge;
+    private List<Sprite> _eastChargeMove;
 
-    public List<Sprite> EastDodge
+    public List<Sprite> EastChargeMove
     {
         get
         {
-            List<Sprite> newList = GenerateNewList(_eastDodge);
+            List<Sprite> newList = GenerateNewList(_eastChargeMove);
 
             return newList;
         }
@@ -175,24 +175,24 @@ public class SArmorItem : SGearItem
     }
 
     [SerializeField]
-    private List<Sprite> _southDrink;
-    public List<Sprite> SouthDrink
+    private List<Sprite> _southChargeIdle;
+    public List<Sprite> SouthChargeIdle
     {
         get
         {
-            List<Sprite> newList = GenerateNewList(_southDrink);
+            List<Sprite> newList = GenerateNewList(_southChargeIdle);
 
             return newList;
         }
     }
 
     [SerializeField]
-    private List<Sprite> _southDodge;
-    public List<Sprite> SouthDodge
+    private List<Sprite> _southChargeMove;
+    public List<Sprite> SouthChargeMove
     {
         get
         {
-            List<Sprite> newList = GenerateNewList(_southDodge);
+            List<Sprite> newList = GenerateNewList(_southChargeMove);
 
             return newList;
         }
@@ -237,24 +237,24 @@ public class SArmorItem : SGearItem
     }
 
     [SerializeField]
-    private List<Sprite> _westDrink;
-    public List<Sprite> WestDrink
+    private List<Sprite> _westChargeIdle;
+    public List<Sprite> WestChargeIdle
     {
         get
         {
-            List<Sprite> newList = GenerateNewList(_westDrink);
+            List<Sprite> newList = GenerateNewList(_westChargeIdle);
 
             return newList;
         }
     }
 
     [SerializeField]
-    private List<Sprite> _westDodge;
-    public List<Sprite> WestDodge
+    private List<Sprite> _westChargeMove;
+    public List<Sprite> WestChargeMove
     {
         get
         {
-            List<Sprite> newList = GenerateNewList(_westDodge);
+            List<Sprite> newList = GenerateNewList(_westChargeMove);
 
             return newList;
         }

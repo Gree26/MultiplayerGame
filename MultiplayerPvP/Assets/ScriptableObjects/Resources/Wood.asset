@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c10dd531da30ae408ec0f90cf384dbf, type: 3}
-  m_Name: Jem
+  m_Script: {fileID: 11500000, guid: 983d694a726f88747b889394b9cfe7d8, type: 3}
+  m_Name: Wood
   m_EditorClassIdentifier: 
-  _inventoryIcon: {fileID: 0}
-  _name: Jem
-  _description: A Common Crafting Item.
-  _stackAmount: 1000
-  _salePrice: 10
+  _itemName: '[PH]'
+  _rarity: {fileID: 0}
+  icon: {fileID: 0}
+  _id: 0
+  _itemImage: {fileID: 0}

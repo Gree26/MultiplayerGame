@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78de6982bbd7562469ab8559c351f7b3, type: 3}
+  m_Name: Large1
+  m_EditorClassIdentifier: 
+  _northIdle:
+  - {fileID: 6289178439065759595, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _northMove:
+  - {fileID: -5004221394658395464, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 6289178439065759595, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 6776614356286663104, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 6289178439065759595, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _northAttack:
+  - {fileID: -2872790594250165391, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _northIdleChargeAttack:
+  - {fileID: -871881162987896060, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _northMoveChargeAttack:
+  - {fileID: -4648463933272100982, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: -871881162987896060, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 119493444049052218, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: -871881162987896060, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _eastIdle:
+  - {fileID: 6025513376195052768, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _eastMove:
+  - {fileID: -3438582183433706618, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 6025513376195052768, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 7397916280917606920, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 6025513376195052768, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _eastAttack:
+  - {fileID: 7168043810813152173, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _eastIdleChargeAttack:
+  - {fileID: -3068434384331411062, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _eastMoveChargeAttack:
+  - {fileID: -2287951238103228823, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: -3068434384331411062, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 5606962325823915693, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: -3068434384331411062, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _southIdle:
+  - {fileID: -9033370107349303441, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _southMove:
+  - {fileID: -6043049181827895857, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: -9033370107349303441, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 6881046628288602742, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: -9033370107349303441, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _southAttack:
+  - {fileID: 8603455280726977288, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _southIdleChargeAttack:
+  - {fileID: 2041367013951689943, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _southMoveChargeAttack:
+  - {fileID: -8644752639522100536, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 2041367013951689943, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 906707797001001864, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 2041367013951689943, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _westIdle:
+  - {fileID: -6968315231456549839, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _westMove:
+  - {fileID: -5866060022162149628, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: -6968315231456549839, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 5844359651825510539, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: -6968315231456549839, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _westAttack:
+  - {fileID: -2881927638472751066, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _westIdleChargeAttack:
+  - {fileID: 210603642030574776, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  _westMoveChargeAttack:
+  - {fileID: 7798839109798210828, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 210603642030574776, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: -5311169962866375248, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}
+  - {fileID: 210603642030574776, guid: 20eab89c83cd70a4b9580c6d5a44d3bf, type: 3}

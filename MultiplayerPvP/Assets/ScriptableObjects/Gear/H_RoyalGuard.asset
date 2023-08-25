@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: H_RoyalGuard
   m_EditorClassIdentifier: 
   _itemName: '[Royal Guard] Helmet'
-  _rarity: 4
-  _itemImage:
-  - {fileID: 21300000, guid: 3215d8d76b96a404cb099aef67a8cc5b, type: 3}
+  _rarity: {fileID: 0}
+  icon: {fileID: 0}
+  _id: 102
+  _itemImage: {fileID: 0}
   health: 0
   armor: 0
   dex: 0

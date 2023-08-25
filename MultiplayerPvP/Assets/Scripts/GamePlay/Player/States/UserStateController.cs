@@ -7,9 +7,6 @@ using StateMachine;
 public class UserStateController : StateRunner<UserStateController>
 {
     [HideInInspector]
-    public DefaultInputActionBinding DefaultInputActionBinding;
-
-    [HideInInspector]
     public CharacterAnimator MyAnimator;
 
     private float _moveSpeed = 5f;
@@ -33,7 +30,7 @@ public class UserStateController : StateRunner<UserStateController>
     protected override void Awake()
     {
         MyAnimator = this.GetComponent<CharacterAnimator>();
-        DefaultInputActionBinding = new DefaultInputActionBinding();
+        
         base.Awake();
     }
 

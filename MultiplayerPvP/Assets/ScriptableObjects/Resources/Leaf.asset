@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983d694a726f88747b889394b9cfe7d8, type: 3}
+  m_Name: Leaf
+  m_EditorClassIdentifier: 
+  _itemName: Leaf
+  _rarity: {fileID: 11400000, guid: e9b3a34e5256e944ea727597f088c031, type: 2}
+  icon: {fileID: 21300000, guid: cf31c9ed587b7ef4493a522f298b5f7e, type: 3}
+  _id: 2
+  _itemImage: {fileID: 21300000, guid: cf31c9ed587b7ef4493a522f298b5f7e, type: 3}
