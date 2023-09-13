@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd7e7ab0c101c4e9132607d343d6a8, type: 3}
+  m_Name: TestHelmet
+  m_EditorClassIdentifier: 
+  _itemName: Test Helmet
+  _rarity: {fileID: 11400000, guid: 7e71a18a166c3c1438dce4ecd4842af1, type: 2}
+  icon: {fileID: 21300000, guid: 0f311bf445108624884ea3b3e33453f6, type: 3}
+  _id: 4
+  _itemImage: {fileID: 21300000, guid: 0f311bf445108624884ea3b3e33453f6, type: 3}
+  health: 0
+  armor: 0
+  chaos: 0
+  order: 0
+  creation: 0
+  destruction: 0
+  _northIdle: []
+  _northMove: []
+  _northAttack: []
+  _northChargeIdle: []
+  _northChargeMove: []
+  _eastIdle: []
+  _eastMove: []
+  _eastAttack: []
+  _eastChargeIdle: []
+  _eastChargeMove: []
+  _southIdle: []
+  _southMove: []
+  _southAttack: []
+  _southChargeIdle: []
+  _southChargeMove: []
+  _westIdle: []
+  _westMove: []
+  _westAttack: []
+  _westChargeIdle: []
+  _westChargeMove: []

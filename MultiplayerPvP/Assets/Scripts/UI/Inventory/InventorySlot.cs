@@ -75,22 +75,15 @@ namespace UI
 
         private void UpdateTotal()
         {
-            if (_stack > 0)
-            {
-                _totalText.gameObject.SetActive(true);
-                _totalText.text = _stack.ToString();
-            }
-            else
-            {
-                _totalText.gameObject.SetActive(false);
-            }
+            _totalText.gameObject.SetActive(_stack != 0);
+            _totalText.text = _stack.ToString();
         }
 
         private void UpdateSelectedState(int value)
         {
-            bool thisObjectWasSelected = (value >= 0) && (value == _selectedButton);
-            bool objectWasPreviouslySelected = (value >= 0) && (_selectedButton >= 0);
-            bool thisObjectIsBeingSelected = (value >= 0) && (value == _buttonId);
+            bool thisObjectWasSelected = (value != -1) && (value == _selectedButton);
+            bool objectWasPreviouslySelected = (value != -1) && (_selectedButton != -1);
+            bool thisObjectIsBeingSelected = (value != -1) && (value == _buttonId);
             bool thisObjectIsNowSelected = (thisObjectIsBeingSelected && !(objectWasPreviouslySelected));
             var previousValue = _selectedButton;
             _selectedButton = value;
@@ -114,7 +107,7 @@ namespace UI
 
         private void SelectedUpdated()
         {
-            if (_selectedButton < 0 || _selectedButton != this._buttonId)
+            if (_selectedButton == -1 || _selectedButton != this._buttonId)
             {
                 _selectedIcon.SetActive(false);
                 return;
@@ -168,7 +161,7 @@ namespace UI
 
         private void UpdateFrame()
         {
-            if (_itemImage == null || _stack <= 0)
+            if (_itemImage == null || _stack == -1)
             {
                 _image.gameObject.SetActive(false);
                 return;

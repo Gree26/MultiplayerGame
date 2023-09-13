@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd462e8826910d4fa19512da2abb255, type: 3}
+  m_Name: TestWeapon
+  m_EditorClassIdentifier: 
+  _itemName: Test Weapon
+  _rarity: {fileID: 0}
+  icon: {fileID: 21300000, guid: d5857c516cda7ea409f32a691a2401fc, type: 3}
+  _id: 7
+  _itemImage: {fileID: 21300000, guid: d5857c516cda7ea409f32a691a2401fc, type: 3}
+  health: 0
+  armor: 0
+  chaos: 0
+  order: 0
+  creation: 0
+  destruction: 0
+  _northIdle: []
+  _northMove: []
+  _northAttack: []
+  _northChargeIdle: []
+  _northChargeMove: []
+  _eastIdle: []
+  _eastMove: []
+  _eastAttack: []
+  _eastChargeIdle: []
+  _eastChargeMove: []
+  _southIdle: []
+  _southMove: []
+  _southAttack: []
+  _southChargeIdle: []
+  _southChargeMove: []
+  _westIdle: []
+  _westMove: []
+  _westAttack: []
+  _westChargeIdle: []
+  _westChargeMove: []

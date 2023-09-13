@@ -19,15 +19,39 @@ public class Inventory : MonoBehaviour
     private static readonly Failed EquipLegsFailed = new Failed("Only Leg Armor Gear Items can be equiped here!");
     private static readonly Failed EquipWeaponFailed = new Failed("Only Weapon Gear Items can be equiped here!");
 
+    /// <summary>
+    /// Invoked when an item has been added or removed from an inventory slot so relavant sources can be updated.
+    /// </summary>
+    public static Action itemAdded;
 
     #region EquipArmor
+    private static bool CanEquipHemet(int position)
+    {
+        return inventoryItemSlots[position] == null || (inventoryItemSlots[position]?.GetItem() is SHelmetItem);
+    }
+
+    private static bool CanEquipChest(int position)
+    {
+        return inventoryItemSlots[position] != null && !(inventoryItemSlots[position]?.GetItem() is SChestItem);
+    }
+
+    private static bool CanEquipLegs(int position)
+    {
+        return inventoryItemSlots[position] != null && !(inventoryItemSlots[position]?.GetItem() is SLegItem);
+    }
+
+    private static bool CanEquipWeapon(int position)
+    {
+        return inventoryItemSlots[position] != null && !(inventoryItemSlots[position]?.GetItem() is SWeaponItem);
+    }
+
     /// <summary>
     /// Equip item to helmet slot. Must be a SHelmetItem object.
     /// </summary>
     /// <param name="position">Position in inventory of Item to be equiped.</param>
-    public static void EquipHelmet(int position)
+    private static void EquipHelmet(int position)
     {
-        if(inventoryItemSlots[position]!=null && !(inventoryItemSlots[position]?.GetItem() is SHelmetItem))
+        if(!CanEquipHemet(position))
         {
             EquipHelmetFailed.ThisActionFailed();
             return;
@@ -35,18 +59,18 @@ public class Inventory : MonoBehaviour
 
         ItemStack? swapedItemStack = inventoryItemSlots[position];
 
-        inventoryItemSlots[position] = new ItemStack((armorItemSlotHelmet != null)? armorItemSlotHelmet?.GetItem() : null);
+        inventoryItemSlots[position] = (armorItemSlotHelmet != null)? new ItemStack(armorItemSlotHelmet?.GetItem()) : (ItemStack?) null;
 
-        armorItemSlotHelmet = new ItemStack((swapedItemStack != null)? swapedItemStack?.GetItem() : null);
+        armorItemSlotHelmet = (swapedItemStack != null) ? new ItemStack( swapedItemStack?.GetItem()) : (ItemStack?) null;
     }
 
     /// <summary>
     /// Equip item to Chest slot. Must be a SChestItem object.
     /// </summary>
     /// <param name="position">Position in inventory of Item to be equiped.</param>
-    public static void EquipChest(int position)
+    private static void EquipChest(int position)
     {
-        if (inventoryItemSlots[position] != null && !(inventoryItemSlots[position]?.GetItem() is SChestItem))
+        if (CanEquipChest(position))
         {
             EquipChestFailed.ThisActionFailed();
             return;
@@ -54,18 +78,18 @@ public class Inventory : MonoBehaviour
 
         ItemStack? swapedItemStack = inventoryItemSlots[position];
 
-        inventoryItemSlots[position] = new ItemStack((armorItemSlotChest != null) ? armorItemSlotChest?.GetItem() : null);
+        inventoryItemSlots[position] = (armorItemSlotChest != null) ? new ItemStack(armorItemSlotChest?.GetItem()) : (ItemStack?)null;
 
-        armorItemSlotChest = new ItemStack((swapedItemStack != null) ? swapedItemStack?.GetItem() : null);
+        armorItemSlotChest = (swapedItemStack != null) ? new ItemStack(swapedItemStack?.GetItem()) : (ItemStack?)null;
     }
 
     /// <summary>
     /// Equip item to Chest slot. Must be a SChestItem object.
     /// </summary>
     /// <param name="position">Position in inventory of Item to be equiped.</param>
-    public static void EquipLegs(int position)
+    private static void EquipLegs(int position)
     {
-        if (inventoryItemSlots[position] != null && !(inventoryItemSlots[position]?.GetItem() is SLegItem))
+        if (CanEquipLegs(position))
         {
             EquipLegsFailed.ThisActionFailed();
             return;
@@ -73,18 +97,18 @@ public class Inventory : MonoBehaviour
 
         ItemStack? swapedItemStack = inventoryItemSlots[position];
 
-        inventoryItemSlots[position] = new ItemStack((armorItemSlotChest != null) ? armorItemSlotChest?.GetItem() : null);
+        inventoryItemSlots[position] = (armorItemSlotLegs != null) ? new ItemStack(armorItemSlotLegs?.GetItem()) : (ItemStack?)null;
 
-        armorItemSlotChest = new ItemStack((swapedItemStack != null) ? swapedItemStack?.GetItem() : null);
+        armorItemSlotLegs = (swapedItemStack != null) ? new ItemStack(swapedItemStack?.GetItem()) : (ItemStack?)null;
     }
 
     /// <summary>
     /// Equip item to Chest slot. Must be a SChestItem object.
     /// </summary>
     /// <param name="position">Position in inventory of Item to be equiped.</param>
-    public static void EquipWeapon(int position)
+    private static void EquipWeapon(int position)
     {
-        if (inventoryItemSlots[position] != null && !(inventoryItemSlots[position]?.GetItem() is SWeaponItem))
+        if (CanEquipWeapon(position))
         {
             EquipWeaponFailed.ThisActionFailed();
             return;
@@ -92,9 +116,9 @@ public class Inventory : MonoBehaviour
 
         ItemStack? swapedItemStack = inventoryItemSlots[position];
 
-        inventoryItemSlots[position] = new ItemStack((armorItemSlotWeapon != null) ? armorItemSlotWeapon?.GetItem() : null);
+        inventoryItemSlots[position] = (armorItemSlotWeapon != null) ? new ItemStack(armorItemSlotWeapon?.GetItem()) : (ItemStack?)null;
 
-        armorItemSlotWeapon = new ItemStack((swapedItemStack != null) ? swapedItemStack?.GetItem() : null);
+        armorItemSlotWeapon = (swapedItemStack != null) ? new ItemStack(swapedItemStack?.GetItem()) : (ItemStack?)null;
     }
     #endregion
 
@@ -106,13 +130,8 @@ public class Inventory : MonoBehaviour
     /// <param name="amount">Total to be added</param>
     private static int AddItems(SItem item, int amount) => AddItems(new ItemStack(item, amount));
 
-    /// <summary>
-    /// Invoked when an item has been added or removed from an inventory slot so relavant sources can be updated.
-    /// </summary>
-    public static Action itemAdded;
-
     // Exists to be recersively called 
-    private static int AddItems(ItemStack itemStack)
+    internal static int AddItems(ItemStack itemStack)
     {
         if (itemStack.GetTotal() <= 0)
         {
@@ -233,6 +252,21 @@ public class Inventory : MonoBehaviour
     {
         //Debug.Log("Getting image at: " + position + " and found " + inventoryItemSlots[position]?.GetItem().itemImage);
 
+        if (position < 0)
+        {
+            switch (position)
+            {
+                case -2:
+                    return armorItemSlotHelmet?.GetItem().itemImage;
+                case -3:
+                    return armorItemSlotChest?.GetItem().itemImage;
+                case -4:
+                    return armorItemSlotLegs?.GetItem().itemImage;
+                case -5:
+                    return armorItemSlotWeapon?.GetItem().itemImage;
+            }
+        }
+
         return inventoryItemSlots[position]?.GetItem().itemImage;
     }
 
@@ -243,6 +277,21 @@ public class Inventory : MonoBehaviour
     /// <returns></returns>
     public static int GetTotalAtPosition(int position)
     {
+        if (position < 0)
+        {
+            switch (position)
+            {
+                case -2:
+                    return (int)armorItemSlotHelmet?.GetTotal();
+                case -3:
+                    return (int)armorItemSlotChest?.GetTotal();
+                case -4:
+                    return (int)armorItemSlotLegs?.GetTotal();
+                case -5:
+                    return (int)armorItemSlotWeapon?.GetTotal();
+            }
+        }
+
         return (int)inventoryItemSlots[position]?.GetTotal();
     }
 
@@ -253,9 +302,91 @@ public class Inventory : MonoBehaviour
     /// <param name="positionTwo">The position to be moved to.</param>
     public static bool SwapItems(int positionOne, int positionTwo)
     {
-        if (inventoryItemSlots[positionOne].Equals(null) && inventoryItemSlots[positionTwo].Equals(null))
+        if ((positionOne >= 0 && inventoryItemSlots[positionOne].Equals(null)) && (positionTwo >= 0 && inventoryItemSlots[positionTwo].Equals(null)))
         {
             return false;
+        }
+
+        if(positionOne < 0 && positionTwo < 0)
+        {
+            if (positionOne >= -4 || positionTwo >= -4)
+            {
+                switch (positionOne)
+                {
+                    case -2:
+                        EquipHelmetFailed.ThisActionFailed();
+                        break;
+                    case -3:
+                        EquipChestFailed.ThisActionFailed();
+                        break;
+                    case -4:
+                        EquipLegsFailed.ThisActionFailed();
+                        break;
+                    case -5:
+                        EquipWeaponFailed.ThisActionFailed();
+                        break;
+                }
+                switch (positionTwo)
+                {
+                    case -2:
+                        EquipHelmetFailed.ThisActionFailed();
+                        break;
+                    case -3:
+                        EquipChestFailed.ThisActionFailed();
+                        break;
+                    case -4:
+                        EquipLegsFailed.ThisActionFailed();
+                        break;
+                    case -5:
+                        EquipWeaponFailed.ThisActionFailed();
+                        break;
+                }
+                itemAdded?.Invoke();
+                return false;
+            }
+        }
+
+        // Handle Equipment. . . Equiping? Handle stuff being put on. 
+        if(positionTwo < 0)
+        {
+            switch (positionTwo)
+            {
+                case -2:
+                    EquipHelmet(positionOne);
+                    break;
+                case -3:
+                    EquipChest(positionOne);
+                    break;
+                case -4:
+                    EquipLegs(positionOne);
+                    break;
+                case -5:
+                    EquipWeapon(positionOne);
+                    break;
+            }
+            itemAdded?.Invoke();
+            return true;
+        }
+
+        if(positionOne < 0)
+        {
+            switch (positionOne)
+            {
+                case -2:
+                    EquipHelmet(positionTwo);
+                    break;
+                case -3:
+                    EquipChest(positionTwo);
+                    break;
+                case -4:
+                    EquipLegs(positionTwo);
+                    break;
+                case -5:
+                    EquipWeapon(positionTwo);
+                    break;
+            }
+            itemAdded?.Invoke();
+            return true;
         }
 
         if (inventoryItemSlots[positionOne]?.GetItem() == inventoryItemSlots[positionTwo]?.GetItem())

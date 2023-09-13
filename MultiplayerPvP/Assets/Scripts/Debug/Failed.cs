@@ -22,6 +22,11 @@ namespace Debugers
             _failMessage = failMessage;
         }
 
+        public string FailMessage()
+        {
+            return _failMessage;
+        }
+
         public void ThisActionFailed()
         {
             ActionFailed?.Invoke(this);

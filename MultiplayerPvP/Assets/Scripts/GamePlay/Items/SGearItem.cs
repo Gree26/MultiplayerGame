@@ -22,8 +22,8 @@ public abstract class SGearItem : SItem
     [SerializeField]
     protected int destruction = 0;
 
-    public SGearItem()
+    public override int GetStackCap()
     {
-        _stackCap = 1;
+        return 1;
     }
 }

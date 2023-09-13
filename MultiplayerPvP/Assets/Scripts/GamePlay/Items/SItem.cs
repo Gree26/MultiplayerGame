@@ -48,11 +48,9 @@ public class SItem : ScriptableObject
         get => _itemImage;
     }
 
-    protected int _stackCap = 999;
-
-    public int GetStackCap()
+    public virtual int GetStackCap()
     {
-        return _stackCap;
+        return 999;
     }
 
     private void OnValidate()
