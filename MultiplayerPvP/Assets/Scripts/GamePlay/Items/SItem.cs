@@ -24,6 +24,9 @@ public class SItem : ScriptableObject
     private short _myId = -1;
 
     [SerializeField]
+    public string Description { get; private set; } = "";
+
+    [SerializeField]
     private short _id = -1;
 
     public short Id
@@ -51,6 +54,11 @@ public class SItem : ScriptableObject
     public virtual int GetStackCap()
     {
         return 999;
+    }
+
+    public virtual string GetItemTypeName()
+    {
+        return "Basic Resource";
     }
 
     private void OnValidate()

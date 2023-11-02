@@ -5,5 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemData", menuName = "Items/Helmet", order = 2)]
 public class SHelmetItem : SArmorItem
 {
-    
+    public override string GetItemTypeName()
+    {
+        return "Helmet Armor";
+    }
 }

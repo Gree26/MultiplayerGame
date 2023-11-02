@@ -26,7 +26,15 @@ namespace UI
 
         private void ItemSelected(int position)
         {
-            
+            SItem item = Inventory.GetItemAtPosition(position);
+
+            if (position == -1 || item == null)
+            {
+                ItemDescriptionPage.Close();
+                return;
+            }
+
+            ItemDescriptionPage.Open(Inventory.GetItemAtPosition(position));
         }
     }
 }

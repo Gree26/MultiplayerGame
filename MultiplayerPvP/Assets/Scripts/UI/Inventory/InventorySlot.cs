@@ -96,10 +96,11 @@ namespace UI
                 swapPerformed?.Invoke(previousValue, _selectedButton);
                 _selectedButton = -1;
             }
-            else if (thisObjectIsNowSelected)
-            {
-                itemSelected?.Invoke(value);
-            }
+            //else if (thisObjectIsNowSelected)
+            //{
+            //    itemSelected?.Invoke(value);
+            //}
+            itemSelected?.Invoke(value);
             Debug.Log("Current Selected: " + _selectedButton);
             _selectedIcon.SetActive(thisObjectIsNowSelected);
             _newSelectedAction?.Invoke();

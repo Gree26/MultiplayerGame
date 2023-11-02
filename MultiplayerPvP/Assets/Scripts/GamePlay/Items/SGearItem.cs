@@ -5,22 +5,22 @@ using UnityEngine;
 public abstract class SGearItem : SItem
 {
     [SerializeField]
-    protected int health = 0;
+    public int health { get; private set; } = 0;
 
     [SerializeField]
-    protected int armor = 0;
+    public int armor { get; private set; } = 0;
 
     [SerializeField]
-    protected int chaos = 0;
+    public int chaos { get; private set; } = 0;
 
     [SerializeField]
-    protected int order = 0;
+    public int order { get; private set; } = 0;
 
     [SerializeField]
-    protected int creation = 0;
+    public int creation { get; private set; } = 0;
 
     [SerializeField]
-    protected int destruction = 0;
+    public int destruction { get; private set; } = 0;
 
     public override int GetStackCap()
     {

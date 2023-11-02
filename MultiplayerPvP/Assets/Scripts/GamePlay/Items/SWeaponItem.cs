@@ -5,5 +5,8 @@ using UnityEngine;
 
 public class SWeaponItem : SArmorItem
 {
-    
+    public override string GetItemTypeName()
+    {
+        return "Weapon";
+    }
 }

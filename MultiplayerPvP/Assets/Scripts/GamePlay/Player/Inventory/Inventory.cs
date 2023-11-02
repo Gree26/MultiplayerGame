@@ -243,6 +243,26 @@ public class Inventory : MonoBehaviour
         return total;
     }
 
+    public static SItem GetItemAtPosition(int position)
+    {
+        if (position < 0)
+        {
+            switch (position)
+            {
+                case -2:
+                    return armorItemSlotHelmet?.GetItem();
+                case -3:
+                    return armorItemSlotChest?.GetItem();
+                case -4:
+                    return armorItemSlotLegs?.GetItem();
+                case -5:
+                    return armorItemSlotWeapon?.GetItem();
+            }
+        }
+
+        return inventoryItemSlots[position]?.GetItem();
+    }
+
     /// <summary>
     /// Returns the Icon Sprite for the item at this position. 
     /// </summary>
